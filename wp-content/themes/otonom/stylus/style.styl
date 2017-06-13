@@ -1,0 +1,209 @@
+@import "reset.css"
+@import "keyframes.styl"
+@import "modal.styl"
+
+$small=460px
+$large=1025px
+$medium=700px
+$main=#e04a2a;
+$contrast=#ef6f30;
+.modal_close
+	position absolute
+	top -20px
+	right 0
+	cursor: pointer
+body
+	background-color #f5f3f3
+	animation: fadeIn 1s forwards
+	margin 0
+	font-style: normal;
+	font-size:16px;
+	line-height:24px
+	font-family: arial;
+img
+	max-width 100%
+html
+	font-size: 62%;
+	font-weight:500
+*
+	box-sizing:border-box;
+a
+	text-decoration:none;
+	font-size:16px;
+	line-height:24px
+	@extend .transition
+em,i
+	font-style italic
+section,header,footer
+	lost-utility: clearfix;
+	position relative
+.filson_black
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 800;
+.filson_bold
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+.filson_medium
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+.filson_regular
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+.container
+	max-width 1190px
+	margin 0 auto
+	border-left 1px solid white
+	border-right 1px solid white
+	padding 20px
+.header
+	width 100%
+	height 100vh
+	display block
+	color white
+	&_bg
+		width inherit
+		height inherit
+		background-size: cover;
+		background-attachment: fixed;
+		overflow: hidden;
+		repeat no-repeat
+	&_logo
+		position absolute
+		display block
+		width 100%
+		img
+			display: block;
+			margin: 0 auto;
+			max-width 150px
+			+above($medium)
+				max-width 271px
+	&_container
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width inherit
+		height inherit
+		text-align center
+		border-top: 1px solid #fff;
+		margin-top: 40px;
+	&_title
+		@extend .filson_bold
+		max-width 90%
+		font-size 22px
+		line-height 24px
+		+above($medium)
+			font-size 42px
+			line-height 46px
+			letter-spacing: 2px;
+	&_subtitle
+		font-size 15px
+		max-width 80%
+		margin 24px 0 60px 0
+		+above($medium)
+			margin 24px 0 88px 0
+			letter-spacing: 2px;
+			max-width 80%
+	&_btn
+		background-color: #c33;
+		background: linear-gradient(to right, $contrast,$main);
+		padding: 6px 14px;
+		border: 2px solid #fff;
+		border-radius: 12px;
+		a
+			color white
+			text-decoration none
+			font-size 12px
+			@extend .filson_regular
+			letter-spacing: 2px;
+.description
+	display flex
+	flex-direction column
+	align-items center
+	justify-content center
+	margin-bottom 20px
+	+above($medium)
+		margin-bottom 40px
+	&_title
+		color $main
+		@exten .filson_black
+		font-size 22px
+		line-height 26px
+		margin-bottom 20px
+		+above($medium)
+			margin-bottom 40px
+			font-size 25px
+			line-height 32px
+			letter-spacing: 2px;
+	&_list
+		position relative
+		padding-left 12px
+		li
+			&:before
+				position absolute
+				content: '\2022 ';
+				color: $main;
+				left: -2px;
+			+above($medium)
+				margin-bottom 26px
+.info
+	text-align center
+	&_title
+		color $main
+		@extend .filson_black
+		font-size 22px
+		line-height 24px
+		+above($medium)
+			font-size 42px
+			line-height 46px
+	&_txt
+		margin 20px 0
+		color $contrast
+		font-size 16px
+		line-height 22px
+		+above($medium)
+			margin 40px 0
+			letter-spacing: 2px;l
+			line-height 25px
+.footer
+	&_title
+		color white
+		@extend .filson_black
+		font-size 22px
+		line-height 24px
+		+above($medium)
+			font-size 42px
+			line-height 46px
+	&_txt
+		font-size 16px
+		line-height 22px
+		+above($medium)
+			margin 40px 0
+			letter-spacing: 2px;l
+			line-height 25px
+	&_small
+		font-size 10px
+.fa
+	border-radius 50%
+	font-size 16px
+	text-align center
+	width 32px
+	height 32px
+	display table-cell!important
+	vertical-align middle
+.fa-facebook
+	background-color #3b5898
+	color white
+.fa-twitter
+	background-color #54abed
+	color white
+.fa-linkedin
+	background-color #0077b5
+	color white
+.fa-envelope
+	background-color #7d7d7d
+	color white

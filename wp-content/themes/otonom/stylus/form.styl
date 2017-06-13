@@ -1,0 +1,59 @@
+form
+	width 100%
+	+above(1000px)
+		max-width: 540px;
+		display: flex;
+		flex-direction: column;
+		align-content: flex-start;
+		/* display: block; */
+input,textarea
+	display block
+	background-color rgba(0,0,0,0)
+	border none
+	border-bottom 1px solid $black
+	color $black
+	width 100%
+	margin-bottom: 20px;
+	padding: 8px 4px 8px 4px;
+	outline none
+textarea
+	height: 100px;
+.half
+	display flex
+	flex-direction row
+	justify-content space-between
+	input
+		width 95%
+	span:last-child
+		justify-content: flex-end;
+		display flex
+.wpcf7-submit
+	position absolute
+	top 0
+	left 0
+	margin 0
+	padding 0
+	color transparent
+	border-bottom 0px solid transparent
+	height 63px
+	width 100%
+	outline: none;
+	z-index: 30;
+	cursor: pointer;
+.footer form .wpcf7-not-valid-tip
+	display none
+.footer form .wpcf7-not-valid
+	border: dashed 4px $main!important;
+div.wpcf7-validation-errors,div.wpcf7-mail-sent-ok
+	border: dashed 4px #00aeef !important;
+	margin: 32px 0;
+	text-align: center;
+	font-size 18px
+::-webkit-input-placeholder
+	color $black!important
+:-moz-placeholder
+	color $black!important
+::-moz-placeholder
+	color $black!important
+:-ms-input-placeholder  
+	color $black!important

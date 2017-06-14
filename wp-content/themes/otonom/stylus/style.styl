@@ -1,12 +1,13 @@
 @import "reset.css"
-@import "keyframes.styl"
-@import "modal.styl"
-
 $small=460px
 $large=1025px
 $medium=700px
 $main=#e04a2a;
 $contrast=#ef6f30;
+
+@import "keyframes.styl"
+@import "modal.styl"
+@import "form.styl"
 .modal_close
 	position absolute
 	top -20px
@@ -109,7 +110,7 @@ section,header,footer
 			letter-spacing: 2px;
 			max-width 80%
 	&_btn
-		background-color: #c33;
+		background-color: $main;
 		background: linear-gradient(to right, $contrast,$main);
 		padding: 6px 14px;
 		border: 2px solid #fff;
@@ -127,7 +128,15 @@ section,header,footer
 	justify-content center
 	margin-bottom 20px
 	+above($medium)
+		flex-direction row
 		margin-bottom 40px
+	&:first-child
+		margin-top 80px
+	&_img
+		width 100%
+		max-width 358px
+		+above($medium)
+			padding-right 40px
 	&_title
 		color $main
 		@exten .filson_black
@@ -152,6 +161,7 @@ section,header,footer
 				margin-bottom 26px
 .info
 	text-align center
+	margin-top 80px
 	&_title
 		color $main
 		@extend .filson_black
@@ -166,12 +176,23 @@ section,header,footer
 		font-size 16px
 		line-height 22px
 		+above($medium)
-			margin 40px 0
+			margin 40px auto
+			max-width 680px
 			letter-spacing: 2px;l
 			line-height 25px
+			display block
+.video
+	&_img
+		max-width 854px
+		width 100%
+		margin 0 auto
+		display block
 .footer
+	background-color: $main;
+	background: linear-gradient($contrast,$main);
+	color white
+	text-align center
 	&_title
-		color white
 		@extend .filson_black
 		font-size 22px
 		line-height 24px
@@ -182,11 +203,31 @@ section,header,footer
 		font-size 16px
 		line-height 22px
 		+above($medium)
-			margin 40px 0
 			letter-spacing: 2px;l
 			line-height 25px
 	&_small
 		font-size 10px
+	&_partners
+		display flex
+		flex-direction column
+		+above($medium)
+			flex-direction row
+			justify-content space-between
+			align-items center
+		&_title
+			@extend .filson_black
+			font-size 22px
+			line-height 24px
+		&_img
+			flex-direction column
+			display flex
+			+above($medium)
+				flex-direction row
+				align-items center
+				justify-content space-between
+			img
+				max-width 180px
+				max-height 74px
 .fa
 	border-radius 50%
 	font-size 16px

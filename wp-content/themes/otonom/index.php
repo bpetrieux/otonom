@@ -32,7 +32,9 @@
 au Québec depuis presque 10 ans, qui optimise la gestion de vos comptes recevables. 
 Que ce soit des loyers, des frais de condos ou tout autre type de revenus.</p>
 	</div>
-	<img src="<?php echo get_template_directory_uri(); ?>/img/thumbnail_video.png"  alt=""  data-video-id="W1eON5USCw" class="btn-play" id="video-start">
+	<div class="video">
+	<img src="<?php echo get_template_directory_uri(); ?>/img/thumbnail_video.png"  alt=""  data-video-id="W1eON5USCw" class="btn-play video_img" id="video-start">
+	</div>
 </section>
 
 

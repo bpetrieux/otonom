@@ -1,8 +1,8 @@
 $(document).ready(function(){
- modal();
+ //modal();
 //modalClose();
  MoveTo();
- //videoShow();
+ videoShow();
 });
 
 function videoShow () {
@@ -26,6 +26,7 @@ function videoShow () {
 
     $(".btn-play").on("click", function (e) {
         e.preventDefault();
+        modal();
         var $videoId = $(this).data('video-id');
         player = new YT.Player('ytplayer', {
             videoId: $videoId,
@@ -39,7 +40,7 @@ function videoShow () {
         // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
             
-            $(".invible").removeClass("invible");
+            
         $("body").addClass("modal");
             if (!hardMode) {
                 event.target.playVideo();
@@ -47,45 +48,65 @@ function videoShow () {
         }
         $(".modal_bg,.modal_close").on('click', function (event) {
             event.preventDefault();
+               modalClose();
             var state = player.getPlayerState();
 
             if (state = 1) {
                 player.stopVideo();
             };
-            $("body.modal").removeClass("modal");
-        $(".modal_bg").addClass("invible");
         });
     });
 };
 
 function modal(){
-    $( "#video-start" ).on( "click", function() {
-        console.log('video_start');
-        
-});
+    console.log('fire');
+    $(".hidden").removeClass("hidden");
+    $("body").addClass("modal");
 }
 function modalClose(){
-    $( ".modal_bg,.modal_close" ).on( "click", function(event) {
-        event.preventDefault();
         $("body.modal").removeClass("modal");
-        $(".modal_bg").addClass("invible");
-});
+        $(".modal_bg").addClass("hidden");
 }
 
 
  function MoveTo() {
 
-    $(window).bind("scroll mousedown DOMMouseScroll mousewheel keyup", function (e) {
-        if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
-            $(window).stop(true, false);
-        }
-    });
-
-    $("a.scroll").bind("click", function (event) {
+    // Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
         event.preventDefault();
-        $('html, body').scrollTo($($(this).attr('href')).offset().top, 1200);
-   
-    });
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 2000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
 }
 
 

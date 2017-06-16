@@ -2,7 +2,9 @@
 	height: 100vh;
 	display: flex;
 	align-items: center;
-	color white
+	flex-direction column
+	color $main
+	justify-content center
 	padding: 80px 24px
 	+below(780px)
 		height: 650px;
@@ -19,3 +21,16 @@
 		font-weight: 500;
 		line-height: 1.6;
 		text-align: center;
+	&_btn
+		background-color: $main;
+		background: linear-gradient(to right, $contrast,$main);
+		padding: 6px 14px;
+		border: 2px solid #fff;
+		border-radius: 12px;
+		margin-top 40px
+		a
+			color white
+			text-decoration none
+			font-size 12px
+			@extend .filson_regular
+			letter-spacing: 2px;

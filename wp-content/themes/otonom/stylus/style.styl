@@ -1,18 +1,29 @@
 @import "reset.css"
 $small=460px
-$large=1025px
+$large=1240px
 $medium=700px
 $main=#e04a2a;
 $contrast=#ef6f30;
-
+.filson_black
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 800;
+.filson_bold
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+.filson_medium
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+.filson_regular
+	font-family: filson-soft, sans-serif;
+	font-style: normal;
+	font-weight: 400;
 @import "keyframes.styl"
 @import "modal.styl"
 @import "form.styl"
-.modal_close
-	position absolute
-	top -20px
-	right 0
-	cursor: pointer
+@import "error.styl"
 body
 	background-color #f5f3f3
 	animation: fadeIn 1s forwards
@@ -20,7 +31,7 @@ body
 	font-style: normal;
 	font-size:16px;
 	line-height:24px
-	font-family: arial;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 img
 	max-width 100%
 html
@@ -38,40 +49,37 @@ em,i
 section,header,footer
 	lost-utility: clearfix;
 	position relative
-.filson_black
-	font-family: filson-soft, sans-serif;
-	font-style: normal;
-	font-weight: 800;
-.filson_bold
-	font-family: filson-soft, sans-serif;
-	font-style: normal;
-	font-weight: 700;
-.filson_medium
-	font-family: filson-soft, sans-serif;
-	font-style: normal;
-	font-weight: 500;
-.filson_regular
-	font-family: filson-soft, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-.container
-	max-width 1190px
-	margin 0 auto
-	border-left 1px solid white
-	border-right 1px solid white
-	padding 20px
-.header
+.pre_container
 	width 100%
-	height 100vh
-	display block
+	+above($large)
+		max-width $large
+		margin 0 auto
+		padding-left 40px
+		padding-right 40px
+.container
+	width 100%
+	padding 20px
+	+above($large)
+		border-left 1px solid white
+		border-right 1px solid white
+		margin 0 auto
+	&:after
+		border-left 1px solid white
+		border-right 1px solid white
+.header
 	color white
+	width 100%
 	&_bg
-		width inherit
-		height inherit
+		height 100vh
+		background-repeat: no-repeat;
+		width 100%
 		background-size: cover;
-		background-attachment: fixed;
-		overflow: hidden;
-		repeat no-repeat
+		+above($large)
+			width inherit
+			height inherit
+			background-size: cover;
+			background-attachment: fixed;
+			overflow: hidden;
 	&_logo
 		position absolute
 		display block
@@ -79,9 +87,15 @@ section,header,footer
 		img
 			display: block;
 			margin: 0 auto;
-			max-width 150px
+			max-width 120px
 			+above($medium)
 				max-width 271px
+	&_slogan
+		align-self: flex-end;
+		+below($medium)
+			display none
+			width 80%
+			margin-top 5%
 	&_container
 		display flex
 		flex-direction column
@@ -90,21 +104,23 @@ section,header,footer
 		width inherit
 		height inherit
 		text-align center
-		border-top: 1px solid #fff;
-		margin-top: 40px;
+		+above($medium)
+			justify-content center
+			padding 80px
 	&_title
 		@extend .filson_bold
-		max-width 90%
+		max-width 96%
 		font-size 22px
 		line-height 24px
 		+above($medium)
 			font-size 42px
 			line-height 46px
 			letter-spacing: 2px;
+			margin-top: 16%;
 	&_subtitle
 		font-size 15px
-		max-width 80%
-		margin 24px 0 60px 0
+		max-width 96%
+		margin 12px 0
 		+above($medium)
 			margin 24px 0 88px 0
 			letter-spacing: 2px;
@@ -121,6 +137,17 @@ section,header,footer
 			font-size 12px
 			@extend .filson_regular
 			letter-spacing: 2px;
+	br
+		+below($medium)
+			display none
+	.pre_container
+		height inherit
+		+above($large)
+			padding-top 40px
+	.container
+		height inherit
+		+above($large)
+			border-top: 1px solid #fff;
 .description
 	display flex
 	flex-direction column
@@ -136,10 +163,10 @@ section,header,footer
 		width 100%
 		max-width 358px
 		+above($medium)
-			padding-right 40px
+			margin-right 40px
 	&_title
 		color $main
-		@exten .filson_black
+		@extend .filson_bold
 		font-size 22px
 		line-height 26px
 		margin-bottom 20px
@@ -148,17 +175,21 @@ section,header,footer
 			font-size 25px
 			line-height 32px
 			letter-spacing: 2px;
+	&_txt
+		padding-right: 42px;
 	&_list
 		position relative
-		padding-left 12px
+		padding-left 18px
 		li
 			&:before
 				position absolute
 				content: '\2022 ';
 				color: $main;
-				left: -2px;
+				left: 0px;
+				font-size 22px
 			+above($medium)
-				margin-bottom 26px
+				margin-bottom 20px
+				font-size 18px
 .info
 	text-align center
 	margin-top 80px
@@ -174,60 +205,103 @@ section,header,footer
 		margin 20px 0
 		color $contrast
 		font-size 16px
-		line-height 22px
+		line-height 18px
 		+above($medium)
 			margin 40px auto
 			max-width 680px
-			letter-spacing: 2px;l
-			line-height 25px
+			letter-spacing: 1px;
+			line-height 22px
 			display block
 .video
+	position relative
+	max-width 854px
+	width 100%
+	margin 0 auto
+	display block
+	+above($medium)
+		height 300px
 	&_img
-		max-width 854px
-		width 100%
 		margin 0 auto
 		display block
+		+above($medium)
+			position: absolute;
+			z-index: 1;
+			width 100%
 .footer
 	background-color: $main;
 	background: linear-gradient($contrast,$main);
 	color white
 	text-align center
+	padding-bottom 40px
+	width 100%
 	&_title
-		@extend .filson_black
+		@extend .filson_bold
 		font-size 22px
 		line-height 24px
 		+above($medium)
+			letter-spacing 2px
 			font-size 42px
 			line-height 46px
 	&_txt
 		font-size 16px
 		line-height 22px
+		margin: 19px 0 8px;
 		+above($medium)
-			letter-spacing: 2px;l
+			letter-spacing: 2px;
 			line-height 25px
 	&_small
-		font-size 10px
+		font-size: 11px;
+		letter-spacing: 1px;
+		font-style: italic;
+		font-weight 100
 	&_partners
 		display flex
 		flex-direction column
+		align-items center
 		+above($medium)
 			flex-direction row
 			justify-content space-between
-			align-items center
+			max-width 780px
+			margin 80px auto
 		&_title
 			@extend .filson_black
 			font-size 22px
 			line-height 24px
+			//opacity 0.6
+			width 320px
+			margin-top 40px
+			+above($medium)
+				margin-top 0
+				letter-spacing: 2px;
 		&_img
 			flex-direction column
 			display flex
 			+above($medium)
 				flex-direction row
 				align-items center
-				justify-content space-between
-			img
-				max-width 180px
-				max-height 74px
+				justify-content space-around
+				width 100%
+			a
+				opacity 0.6
+				margin 10px auto
+				&:hover
+					opacity 1
+	&_social
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		a
+			margin 0 4px
+			opacity 0.8
+			&:hover
+				opacity 1
+	.container
+		padding-top 40px
+		+above($medium)
+			padding-top 220px
+		+above($large)
+			border-bottom 1px solid white
 .fa
 	border-radius 50%
 	font-size 16px

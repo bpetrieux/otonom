@@ -11,7 +11,7 @@ acf_add_local_field_group(array(
 			'label' => 'Etsy Link',
 			'name' => 'etsy_link',
 			'type' => 'text',
-			'default_value' => 'https://www.etsy.com/shop/darveelicious',
+			'default_value' => 'https://www.etsy.com/',
 		),
 		array (
 			'key' => 'society6_link',
@@ -25,21 +25,21 @@ acf_add_local_field_group(array(
 			'label' => 'Facebook Link',
 			'name' => 'facebook_link',
 			'type' => 'text',
-			'default_value' => 'https://www.facebook.com/darveelicious',
+			'default_value' => 'https://www.facebook.com/',
 		),
 		array (
 			'key' => 'instagram_link',
 			'label' => 'Instagram Link',
 			'name' => 'instagram_link',
 			'type' => 'text',
-			'default_value' => 'https://www.instagram.com/darveelicious',
+			'default_value' => 'https://www.instagram.com/',
 		),
 		array (
 			'key' => 'linkedin_link',
 			'label' => 'Linkedin Link',
 			'name' => 'linkedin_link',
 			'type' => 'text',
-			'default_value' => 'https://www.linkedin.com/in/sarhadarveau',
+			'default_value' => 'https://www.linkedin.com/',
 		),
 		array (
 			'key' => 'local_link',
@@ -53,7 +53,7 @@ acf_add_local_field_group(array(
 			'label' => 'Email',
 			'name' => 'email_adress',
 			'type' => 'text',
-			'default_value' => 'info@darvee.ca',
+			'default_value' => 'email@info.ca',
 		),
 		array (
 			'key' => 'darveelicious_logo_black',
